@@ -41,7 +41,9 @@ function makeCalculator() {
     },
 
     operate(operation, number) {
-      operation.call(this, number);
+      if (typeof operation === 'function') {
+        operation.call(this, number);
+      }
 
       return this;
     },
